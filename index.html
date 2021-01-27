@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8"/>
         <title>DOM Play</title>
     </head>
 
     <body>
         <h1>DOM Play</h1>
+        <p><span onclick="highlight(this)">Text goes here</span></p>
 
         <script>
-            alert("hello");
+            function highlight(el){
+                if(el.style.backgroundColor == 'white') {
+                    el.style.backgroundColor = 'pink';
+                }
+                else {
+                    el.style.backgroundColor = 'white';
+                }
+            }
         </script>
     </body>
 </html>
