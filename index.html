@@ -3,21 +3,45 @@
     <head>
         <meta charset="utf-8"/>
         <title>DOM Play</title>
+        <style>
+            #click-spans span {
+                background-color: rgb(97, 173, 235);
+            }
+        </style>
     </head>
 
     <body>
         <h1>DOM Play</h1>
-        <p><span onclick="highlight(this)">Text goes here</span></p>
+        <div id="click-spans">
+            <p><span>Text goes here</span></p>
+            <p><span>Text goes here</span></p>
+            <p><span>Text goes here</span></p>
+            <p><span>Text goes here</span></p>
+            <p><span>Text goes here</span></p>
+        </div>
 
         <script>
-            function highlight(el){
+            const spans = document.querySelectorAll("#click-spans span");
+
+            for(const mySpan of spans) {
+                mySpan.addEventListener("click", function(event){
+                    if(mySpan.style.backgroundColor == 'white') {
+                        mySpan.style.backgroundColor = 'rgb(97, 173, 235)';
+                    }
+                    else {
+                        mySpan.style.backgroundColor = 'white';
+                    }
+                });
+            }
+
+            /* function highlight(el){
                 if(el.style.backgroundColor == 'white') {
                     el.style.backgroundColor = 'pink';
                 }
                 else {
                     el.style.backgroundColor = 'white';
                 }
-            }
+            } */
         </script>
     </body>
 </html>
