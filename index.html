@@ -4,34 +4,59 @@
         <meta charset="utf-8"/>
         <title>DOM Play</title>
         <style>
-            #click-spans span {
+            /* #click-spans span {
                 background-color: rgb(97, 173, 235);
-            }
+            } */
         </style>
     </head>
 
     <body>
         <h1>DOM Play</h1>
         <div id="click-spans">
-            <p><span>Text goes here</span></p>
-            <p><span>Text goes here</span></p>
-            <p><span>Text goes here</span></p>
-            <p><span>Text goes here</span></p>
-            <p><span>Text goes here</span></p>
+            <p><span data-part = "mercedes">Mercedes: What's going on? Where the heck did all the desks go?</span></p>
+            <p><span data-part = "ally">Ally: Did somebody move the classroom?</span></p>
+            <p><span data-part = "nate">Nate: Where's Miss Gribbledrop?</span></p>
+            <p><span data-part = "rebekah">Rebekah: I don't know.</span></p>
+            <p><span data-part = "xia">Xia: I think there's a rule about a teacher not showing up for class, that you only have to wait for, like, ten minutes and then you can leave.</span></p>
+            <p><span data-part = "abbie">Abbie: I heard it was five.</span></p>
+            <p><span data-part = "maddy">Maddy: Will anyone give me four and a half? Four and a half, four and a half?</span></p>
+            <p><span data-part = "piotr">Piotr: Are you diseased or were you just born weird?</span></p>
+            <p><span data-part = "maddy">Maddy: Yes, I have four and a half from the girl with the teeth over there! Do I hear four?</span></p>
+            <p><span data-part = "piotr">Piotr: I'm guessing both.</span></p>
+            <p><span data-part = "maddy">Maddy: Four and a quarter?</span></p>
+            <p><span data-part = "liesel">Liesel: Hey, look, what's that?</span></p>
+            <p><span data-part = "lily">Lily: It's a box.</span></p>
+            <p><span data-part = "liesel">Liesel: Wow, thanks. That was very helpful.</span></p>
+            <p><span data-part = "lily">Lily: Well, you asked.</span></p>
+            <p><span data-part = "joanna">Joanna: Don't pick it up!</span></p>
+            <p><span data-part = "liesel">Liesel: Why not?</span></p>
+            <p><span data-part = "joanna">Joanna: Well, it might be... I mean, you never know if...</span></p>
+            <p><span data-part = "tessa">Tessa: Yeah?</span></p>
+            <p><span data-part = "joanna">Joanna: Shouldn't we call, like, Homeland Security or something?</span></p>
+            <p><span data-part = "robin">Robin: Homeland Security?</span></p>
         </div>
 
         <script>
-            const spans = document.querySelectorAll("#click-spans span");
+            // spans is var so data is global
+            var spans = document.querySelectorAll("#click-spans span");
 
             for(const mySpan of spans) {
-                mySpan.addEventListener("click", function(event){
-                    if(mySpan.style.backgroundColor == 'white') {
-                        mySpan.style.backgroundColor = 'rgb(97, 173, 235)';
+                mySpan.addEventListener("click", function(event) {
+                    highlightRole(mySpan.dataset.part);
+                });
+            }
+
+            function highlightRole(myPart) {
+                for(const mySpan of spans) {
+                    if(mySpan.dataset.part == myPart) {
+                        mySpan.style.backgroundColor = 'rgb(241, 193, 245)';
+                        mySpan.style.fontWeight = 'bold';
                     }
                     else {
                         mySpan.style.backgroundColor = 'white';
+                        mySpan.style.fontWeight = 'normal';
                     }
-                });
+                }
             }
         </script>
     </body>
